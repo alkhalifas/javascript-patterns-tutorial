@@ -23,5 +23,6 @@ const premiumUser = Object.create(user, {
 });
 
 console.log(simpeUser.accountInfo);
+console.log(simpeUser.ads);
 console.log(premiumUser.accountInfo);
 console.log(premiumUser.ads);

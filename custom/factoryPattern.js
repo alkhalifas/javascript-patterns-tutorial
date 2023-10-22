@@ -29,7 +29,7 @@ class ButtonFactory {
             case 'Android':
                 return new AndroidButton();
             default:
-                throw new Error('Invalid plaforn')
+                throw new Error('Invalid plaform')
         }
     }
 }
