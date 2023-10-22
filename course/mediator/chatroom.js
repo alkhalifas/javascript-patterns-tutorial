@@ -11,7 +11,7 @@ exports.Chatroom = class Chatroom {
   // akin to mediate
   send(message, from, to) {
     if(message.match(/\'/)) {
-        console.log('Found char \'. Message dropped')
+        console.log('Found char \\\'. Message dropped')
         return;
     }
     to.receive(message, from);
