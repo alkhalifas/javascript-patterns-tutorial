@@ -66,3 +66,21 @@ class BookRecordManager {
         return currentDate.getTime() > Date.parse(bookRecordDatabase[bookID].dueReturnDate);
     }
 }
+
+
+// Create book records using BookRecordManager
+const book1 = new BookRecordManager(1, "Book Title 1", "Author 1", "Genre 1", 200, 1, "ISBN-123", "2023-10-01", "User 1", "2023-10-15", true);
+const book2 = new BookRecordManager(2, "Book Title 2", "Author 2", "Genre 2", 250, 2, "ISBN-456", "2023-10-02", "User 2", "2023-10-16", true);
+
+// Check out a book
+book1.updateCheckoutStatus(1, false, "2023-10-02", "User 2", "2023-10-17");
+
+// Extend checkout period
+book1.extendCheckoutPeriod(1, "2023-10-25");
+
+// Check if a book is past due
+console.log("Book 1 is past due?", book1.isPastDue(1)); // Output: true (if today is after 2023-10-25)
+
+// Try to create a new book with the same ISBN; it will reuse the existing instance
+const book3 = new BookRecordManager(3, "Book Title 3", "Author 3", "Genre 3", 300, 1, "ISBN-123", "2023-10-03", "User 3", "2023-10-18", true);
+console.log("Are book1 and book3 the same instance?", book1.book === book3.book); // Output: true
