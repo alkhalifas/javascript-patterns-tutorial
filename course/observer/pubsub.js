@@ -8,11 +8,15 @@ exports.PubSub = class PubSub {
         this.subUid = -1;
     }
 
+    // Publish a message to a specific topic
     publish(topic, args) {
+
+        // Check if topic exists
         if (!this.topics[topic]) {
             return false;
         }
 
+        // Identify subscribers
         const subscribers = this.topics[topic];
         let len = subscribers ? subscribers.length : 0;
 
@@ -23,6 +27,7 @@ exports.PubSub = class PubSub {
         return this;
     }
 
+    // Subscribe to a given topic
     subscribe(topic, func) {
         if (!this.topics[topic]) {
             this.topics[topic] = [];
@@ -36,6 +41,7 @@ exports.PubSub = class PubSub {
         return token;
     }
 
+    // 
     unsubscribe(token) {
         for (const m in this.topics) {
             if (this.topics[m]) {
