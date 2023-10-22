@@ -1,3 +1,5 @@
+
+// Base class
 class Vehicle {
     constructor(vehicleType) {
         // some sane defaults
@@ -17,7 +19,7 @@ console.log(testInstance);
 // Lets create a new instance of vehicle, to be decorated
 const truck = new Vehicle('truck');
 
-// New functionality we're decorating vehicle with
+// New functionality we're decorating vehicle with dynamically
 truck.setModel = function(modelName) {
     this.model = modelName;
 };
