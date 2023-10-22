@@ -1,3 +1,5 @@
+
+// Abstract command representing a command
 class Command {
   commands = {};
   execute() {};
